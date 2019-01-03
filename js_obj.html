@@ -1,0 +1,32 @@
+<script>
+
+function Person(name){
+    this.name = name;
+}
+
+Person.prototype.name=null;
+Person.prototype.introduce = function(){
+    return 'My name is '+this.name; 
+}
+ 
+function Programmer(name){
+    this.name = name;
+    this.color = 'red';
+}
+function Doctor(name){
+    this.name = name;
+    this.color = 'blue';
+}
+Programmer.prototype = new Person();
+Doctor.prototype = new Person();
+ 
+var p1 = new Programmer('egoing');
+var p2 = new Doctor('egoing');
+
+console.log(p1);
+console.log(p2.introduce());
+
+
+
+
+</script>
