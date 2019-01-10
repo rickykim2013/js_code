@@ -10,7 +10,16 @@ function getArrFromString() {
 	let chArr = s.toLowerCase().split("");
     return chArr;
 }
+/*******************************************
+// Complete the reverseArray function below.
+*******************************************/
+function reverseArray(a) {
 
+    for (var i in a) {
+        a.splice(i, 0, a.pop());
+    }
+    return a;
+}
 /*******************************************
     MomoprimUnique Array (Option 1: user array only)
 *******************************************/
