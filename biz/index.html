@@ -1,0 +1,237 @@
+
+
+
+<!doctype html>
+<html>
+    <head>
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+      <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0" />
+      <title>Plano Y</title>
+      <link href="https://fonts.googleapis.com/css?family=Spectral" rel="stylesheet">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mobile-angular-ui/1.3.4/css/mobile-angular-ui-base.min.css" />
+
+<style>
+      h3 {
+        font-family: 'Tangerine', serif;
+        font-size: 48px;
+      }
+    </style>
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+ 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mobile-angular-ui/1.3.4/js/mobile-angular-ui.min.js?v=1"></script>
+    <!-- Required to use $touch, $swipe, $drag and $translate services -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mobile-angular-ui/1.3.4/js/mobile-angular-ui.gestures.min.js"></script>
+
+
+
+      <!--style id='example-css'></style-->
+      <script>
+        // Returns the ISO week of the date.
+        Date.prototype.getWeek = function() {
+          var date = new Date(this.getTime());
+          date.setHours(0, 0, 0, 0);
+          // Thursday in current week decides the year.
+          date.setDate(date.getDate() + 3 - (date.getDay() + 6) % 7);
+          // January 4 is always in week 1.
+          var week1 = new Date(date.getFullYear(), 0, 4);
+          // Adjust to Thursday in week 1 and count number of weeks from date to week1.
+          return 1 + Math.round(((date.getTime() - week1.getTime()) / 86400000
+                                - 3 + (week1.getDay() + 6) % 7) / 7);
+        }
+
+        // Returns the four-digit year corresponding to the ISO week of the date.
+        Date.prototype.getWeekYear = function() {
+          var date = new Date(this.getTime());
+          date.setDate(date.getDate() + 3 - (date.getDay() + 6) % 7);
+          return date.getFullYear();
+        }
+        var date2 = new Date();
+        var weekCnt = date2.getWeek();
+        var retStr = '';
+        var manW = [1,3];
+        //console.log(manW.indexOf(weekCnt));
+
+
+        if( manW.indexOf(weekCnt) > -1 ){
+        retStr = 'Brother'
+        }else{
+        retStr = 'Sister'
+        }
+        if (weekCnt == 5){ retStr = 'Together'; }
+        retStr = 'This week meeting is for [' + retStr + '].'
+        alert(retStr);
+
+        angular.module('myApp', ['mobile-angular-ui']);
+
+
+      </script>
+    </head>
+    <body ng-app="myApp">
+      <div class="scrollable">
+        <div class="scrollable-content">
+          <div class='section' id='example-html'>
+          <p>
+<h3 class="page-header"> 
+<img src="plano2.JPG" width="30%">&nbsp;Plano Y</h3>
+
+</p>
+
+
+<ui-state id='activeTab' default='1'></ui-state>
+
+<ul class="nav nav-tabs">
+  <li ui-class="{'active': activeTab == 1}">
+    <a ui-set="{'activeTab': 1}">Meeting Info </a>
+  </li>
+  <li ui-class="{'active': activeTab == 2}">
+    <a ui-set="{'activeTab': 2}">Resource </a>
+  </li>
+
+
+
+
+  </ul>
+
+
+
+
+
+<div ui-if="activeTab == 1">
+<br><a href="http://kcm.co.kr/bible/kor/Eph1.html" target="_new">에베소서(1장:케빈,2장:헌트,3장:선,4장:리키,5장:샘,6장:케빈)</a>
+<hr>
+토요일 6:30 AM(2times/Month)
+<br>Schedule for 2019&nbsp;<font color=blue>Brother</font>/&nbsp;<font color=red>Syster</font>/&nbsp;<font color=green>All</font>
+<hr>
+<img src="cal.jpg" >
+
+<br>
+<ul>
+<li>JAN - 1/5(M), 1/12(W),1/19(M),1/26(W)</li>
+<li>FEB - 2/2(M), 2/09(W),2/16(M),2/23(W)</li>
+<li>MAR - 3/2(M), 3/09(W),3/16(M),3/23(W),<br/>3/30(M+W:LUNCH)</li>
+<hr>
+<li>APR - 4/6(M), 4/13(W),4/20(M),4/27(W)</li>
+<li>MAY - 5/4(M), 5/11(W),5/18(M),5/25(W)</li>
+<li>JUN - 6/1(M), 6/01(W),6/15(M),6/22(W),<br/>6/29(M+W:CBMC Conference)</li>
+<hr>
+<li>JUL - 7/6(M), 7/13(W),7/20(M),7/27(W)</li>
+<li>AUG - 8/3(M), 8/10(W),8/17(M),8/24(W),<br/>8/31(M+W:OUTDOOR)</li>
+<li>SEP - 9/7(M), 9/14(W),9/21(M),9/28(W)</li>
+<hr>
+<li>OCT - 10/5(M), 10/12(W),10/19(M),10/26(W)</li>
+<li>NOV - 11/2(M), 11/09(W),11/16(M),11/23(W),<br/>11/30(M+W:LUNCH)</li>
+<li>DEC - 12/7(M), 12/14(W),12/21(M),12/28(W)</li>
+</ul>
+
+
+</div>
+
+
+
+
+<div ui-if="activeTab == 2">
+ <hr>
+<ul>
+<li> <a href='http://www.cbmc.or.kr/new/bbs/board.php?bo_table=home_mondayManna&page=' target="_new" >Monday Mana</a> </li>
+<hr>
+<li> <a href='https://kcbmc.net/' target="_new" >KCBMC Home</a> </li>
+
+<hr>
+
+<li> <a href="http://www.mceo.info/mceo/cbmc/" target="_new" >KCBMC Member List</a> </li>
+  
+
+
+</ul> 
+
+</div>
+
+
+
+
+
+<div ui-if="activeTab == 3">
+<div ng-include="'3.html'"></div>
+<div ng-include="'c.html'"></div>
+</div>
+
+
+
+
+<div ui-if="activeTab == 4">
+<br>
+<ul>
+<li>2/21/2017 </li>
+<li>내가 생각하는 비지니스에서의 가장 중요한 가치는 무엇일까?</li>
+
+</ul>
+
+<hr>  
+
+
+<hr>
+</div>
+
+
+
+
+
+<div ui-if="activeTab == 5">
+<br>
+TBD
+<hr>  
+<ul>
+<li>03/21/2017</li>
+<li>TBD</li>
+</ul>
+</div>
+
+
+
+
+<div ui-if="activeTab == 6">
+<br>
+TBD
+<hr>  
+<ul>
+<li>04/17/2017</li>
+<li>TBD</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          </div>
+        </div>
+      </div>
+    </body>
+</html>
