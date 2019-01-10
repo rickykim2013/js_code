@@ -107,13 +107,12 @@ function getResult(arr){
     }
 }
 
-
-
-function getHigh2(arr){
-	var retAry = arr.sort(function(a,b){
-		return b-a;
-	});
-
+// Complete the reverseArray function below.
+function reverseArray(a) {
+    for (var i in a) {
+        a.splice(i, 0, a.pop());
+    }
+    return a;
 
 }
 
